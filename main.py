@@ -24,4 +24,4 @@ if __name__ == '__main__':
     solver.read_input(args.input)
     solver.solve()
 
-    solver.write(args.output)
+    #solver.write(args.output)
