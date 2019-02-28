@@ -42,3 +42,6 @@ class Base(object):
                 f.wtite(" ")
                 f.write(str(picture[1]))
                 f.write("\n")
+            else:
+                f.write(picture[0])
+                f.write("\n")
