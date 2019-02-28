@@ -3,7 +3,7 @@ if __name__ == '__main__':
     import importlib
     import logging
 
-    logging.basicConfig(level=logging.DEBUG)
+    logging.basicConfig(level=logging.ERROR)
 
     parser = argparse.ArgumentParser(description="Google Hashcode 2k19 - Pizza")
     parser.add_argument("--input", help='input file', default='a_example.in')

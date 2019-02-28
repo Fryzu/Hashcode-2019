@@ -73,3 +73,5 @@ class Base(object):
 
         return result
 
+    def merge(self, toMerge):
+        return (-1, True, list(set(toMerge[0][2]+toMerge[1][2])))
