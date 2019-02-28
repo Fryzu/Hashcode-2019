@@ -38,7 +38,7 @@ class Base(object):
             f.write("\n")
             for picture in self.result:
                 if len(picture)>1:
-                f.write(str(len(picture[0])))
+                f.write(str(picture[0]))
                 f.wtite(" ")
                 f.write(str(picture[1]))
                 f.write("\n")
