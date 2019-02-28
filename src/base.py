@@ -9,6 +9,10 @@ class Base(object):
         self.N = 0
         self.photos_list = []
         self.result = []
+        self.horizontals = []
+        self.verticals = []
+        self.horizontals_slides = []
+
 
     def read_input(self, input_file_name):
         """ Reading input files """
@@ -34,8 +38,15 @@ class Base(object):
     def write(self, output_file_name):
         """ writing to file """
         with open("output/" + output_file_name, 'w') as f:
-            for vehicle in self.result:
-                f.write(str(len(vehicle)))
-                for ride_id in vehicle:
-                    f.write(" " + str(ride_id))
-                f.write("\n")
+            f.write(str(len(self.verticals)))
+            f.write("\n")
+            for picture in self.verticals:
+                if len(picture)==2:
+                    f.write(str(picture[0][0]))
+                    #logging.debug(str(picture[0][0]))
+                    f.write(" ")
+                    f.write(str(picture[1][0]))
+                    f.write("\n")
+                else:
+                    f.write(str(picture[0]))
+                    f.write("\n")

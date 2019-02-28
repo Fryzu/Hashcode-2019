@@ -6,9 +6,6 @@ import logging
 class Solver(Base):
     def solve(self):
         '''creating two groups'''
-        self.horizontals = []
-        self.verticals = []
-        self.horizontals_slides = []
 
 
         for i in self.photos_list:
@@ -19,8 +16,9 @@ class Solver(Base):
 
 
 
-        #logging.debug("Horizontals: %s", self.horizontals)
-        #logging.debug("Verticals: %s", self.verticals)
+        logging.debug("Horizontals: %s", len(self.horizontals))
+        logging.debug("Verticals: %s", len(self.verticals))
+        exit(1)
 
         # making one slide from 2 vertical pictures
         ll = int(len(self.horizontals)/2)
@@ -37,7 +35,7 @@ class Solver(Base):
             pbar.update(1)
             ll-=1
 
-        logging.debug("Result: %s", self.verticals)
+        #logging.debug("Result: %s", self.verticals)
         pbar.close()
 
         return True

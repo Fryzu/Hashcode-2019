@@ -2,6 +2,7 @@ from .base import Base
 import numpy as np
 import tqdm
 import logging
+from itertools import combinations
 
 class Solver(Base):
     def solve(self):
@@ -15,7 +16,8 @@ class Solver(Base):
             else:
                 self.horizontals.append(i)
 
+        self.verticals_pairs = list(combinations(self.verticals, 2)) 
         logging.debug("Horizontals: %s", self.horizontals)
-        logging.debug("Verticals: %s", self.verticals)
+        logging.debug("Vertical pairs: %s", self.verticals_pairs)
 
         return True
