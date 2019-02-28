@@ -34,8 +34,11 @@ class Base(object):
     def write(self, output_file_name):
         """ writing to file """
         with open("output/" + output_file_name, 'w') as f:
-            for vehicle in self.result:
-                f.write(str(len(vehicle)))
-                for ride_id in vehicle:
-                    f.write(" " + str(ride_id))
+            f.write(str(len(self.result)))
+            f.write("\n")
+            for picture in self.result:
+                if len(picture)>1:
+                f.write(str(len(picture[0])))
+                f.wtite(" ")
+                f.write(str(picture[1]))
                 f.write("\n")
