@@ -29,7 +29,7 @@ class Base(object):
                     tagsList.append(line_argument_list[j+2])
                 self.photos_list.append((i, verticalOrHorizontal, tagsList))
 
-            logging.debug(self.photos_list)
+            #logging.debug(self.photos_list)
 
     def write(self, output_file_name):
         """ writing to file """
