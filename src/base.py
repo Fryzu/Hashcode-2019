@@ -6,7 +6,9 @@ project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 class Base(object):
     '''import/outport base class for our algo'''
     def __init__(self, input_file_name):
-        self.R, self.C, self.L, self.H = 0, 0, 0, 0
+        self.N = 0
+        self.photos_list = []
+        self.result = []
 
     def read_input(self, input_file_name):
         """ Reading input files """
@@ -14,17 +16,20 @@ class Base(object):
         with open(os.path.join(project_dir, "input", input_file_name), 'r') as f:
             first_line = f.readline()
 
-            N = first_line.rstrip()
-            logging.debug("N")
+            self.N = int(first_line.rstrip())
+            logging.debug("Number of photos %s", self.N)
 
-            '''self.pizza = np.zeros((self.R, self.C), dtype=int)
+            for i in range(self.N):
+                line = f.readline().replace('\n', '')
+                line_argument_list = line.split(' ')
+                verticalOrHorizontal = (line_argument_list[0] == "V")
+                tagsCount = int(line_argument_list[1])
+                tagsList = []
+                for j in range(tagsCount):
+                    tagsList.append(line_argument_list[j+2])
+                self.photos_list.append((i, verticalOrHorizontal, tagsList))
 
-            for i in range(self.R):
-                line = f.readline()
-                for j in range(self.C):
-                    self.pizza[i][j] = (line[j] == "T")
-
-            logging.debug("Pizza:\n %s", self.pizza)'''
+            logging.debug(self.photos_list)
 
     def write(self, output_file_name):
         """ writing to file """
