@@ -38,11 +38,14 @@ class Base(object):
             f.write("\n")
             for picture in self.result:
                 if len(picture)>1:
-                    f.write(str(picture[0]))
-                    f.wtite(" ")
-                    f.write(str(picture[1]))
-                    f.write("\n")
-
+                f.write(str(picture[0]))
+                f.wtite(" ")
+                f.write(str(picture[1]))
+                f.write("\n")
+            else:
+                f.write(picture[0])
+                f.write("\n")
+                    
     def value(self, first, second):
         '''Calculets points for S and S+1'''
         
