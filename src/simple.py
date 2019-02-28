@@ -18,14 +18,15 @@ class Solver(Base):
 
         logging.debug("Horizontals: %s", len(self.horizontals))
         logging.debug("Verticals: %s", len(self.verticals))
-        exit(1)
 
         # making one slide from 2 vertical pictures
         ll = int(len(self.horizontals)/2)
+        l = ll
         pbar = tqdm.tqdm(total=ll, desc='Computing time')
-        for _ in range(ll):
+        for _ in range(l):
 
             c1 = np.random.randint(0, ll)
+            ll-=1
             c2 = np.random.randint(0, ll)
             while c1 == c2:
                 c2 = np.random.randint(0, len(self.horizontals))
@@ -34,6 +35,8 @@ class Solver(Base):
             self.verticals.append((self.horizontals[c1], self.horizontals[c2]))
             pbar.update(1)
             ll-=1
+
+        self.result = self.verticals
 
         #logging.debug("Result: %s", self.verticals)
         pbar.close()

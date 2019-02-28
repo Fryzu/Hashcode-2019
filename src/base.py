@@ -38,9 +38,9 @@ class Base(object):
     def write(self, output_file_name):
         """ writing to file """
         with open("output/" + output_file_name, 'w') as f:
-            f.write(str(len(self.verticals)))
+            f.write(str(len(self.result)))
             f.write("\n")
-            for picture in self.verticals:
+            for picture in self.result:
                 if len(picture)==2:
                     f.write(str(picture[0][0]))
                     #logging.debug(str(picture[0][0]))
