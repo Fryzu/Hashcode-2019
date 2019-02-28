@@ -14,17 +14,17 @@ class Base(object):
         with open(os.path.join(project_dir, "input", input_file_name), 'r') as f:
             first_line = f.readline()
 
-            self.R, self.C, self.L, self.H = map(int, first_line.split(' '))
-            logging.debug("Input file: Rows %s Columns %s Min %s Max %s", self.R, self.C, self.L, self.H)
+            N = first_line.rstrip()
+            logging.debug("N")
 
-            self.pizza = np.zeros((self.R, self.C), dtype=int)
+            '''self.pizza = np.zeros((self.R, self.C), dtype=int)
 
             for i in range(self.R):
                 line = f.readline()
                 for j in range(self.C):
                     self.pizza[i][j] = (line[j] == "T")
 
-            logging.debug("Pizza:\n %s", self.pizza)
+            logging.debug("Pizza:\n %s", self.pizza)'''
 
     def write(self, output_file_name):
         """ writing to file """
