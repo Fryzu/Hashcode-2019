@@ -4,9 +4,7 @@ import os
 project_dir = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 class Base(object):
-    """
-    Base class that holds all necessary data
-    """
+    '''import/outport base class for our algo'''
     def __init__(self, input_file_name):
         self.R, self.C, self.L, self.H = 0, 0, 0, 0
 
@@ -29,11 +27,7 @@ class Base(object):
             logging.debug("Pizza:\n %s", self.pizza)
 
     def write(self, output_file_name):
-        """
-        Writing solution to output file
-        :param output_file_name:
-        :return:
-        """
+        """ writing to file """
         with open("output/" + output_file_name, 'w') as f:
             for vehicle in self.result:
                 f.write(str(len(vehicle)))
