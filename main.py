@@ -16,13 +16,12 @@ if __name__ == '__main__':
 
     try:
         solver = importlib.import_module('.'.join(["src", args.solver]))
-        #solver = importlib.import_module("..simple")
     except ImportError:
         logging.error('Cant import solver')
         exit(1)
 
     solver = solver.Solver(args.input)
     solver.read_input(args.input)
-    #solver.solve()
+    solver.solve()
 
-    #solver.write(args.output)
+    solver.write(args.output)
