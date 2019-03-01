@@ -3,6 +3,7 @@ import numpy as np
 import tqdm
 import logging
 from itertools import combinations
+import random
 
 class Solver(Base):
     def solve(self):
@@ -40,6 +41,8 @@ class Solver(Base):
                     bestNeighbour = j
                     best = tmp
                     bestId = counter
+                    if counter > 100:
+                        break
 
             for counter, j  in enumerate(self.verticals_pairs):
                 tmp = self.value(self.merge(j), self.result[-1])
@@ -48,6 +51,8 @@ class Solver(Base):
                     best = tmp
                     horizonts = False
                     bestId = counter
+                    if counter > 100:
+                        break
 
             ''' deleting becaouse is used'''
             if horizonts:
@@ -56,6 +61,7 @@ class Solver(Base):
             else:
                 self.result.append(self.verticals_pairs[bestId])
                 del self.verticals_pairs[bestId]
+
 
         pbar.close()
         print("result %s", self.result)
