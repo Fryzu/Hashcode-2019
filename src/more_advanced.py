@@ -3,7 +3,7 @@ import numpy as np
 import tqdm
 import logging
 from itertools import combinations
-import random
+from random import randint
 
 class Solver(Base):
     def solve(self):
@@ -35,24 +35,23 @@ class Solver(Base):
 
             horizonts = True
 
-            for counter, j in enumerate(self.horizontals):
-                tmp = self.value(j, self.result[-1])
-                if tmp > best:
-                    bestNeighbour = j
-                    best = tmp
-                    bestId = counter
-                    if counter > 100:
-                        break
-
-            for counter, j  in enumerate(self.verticals_pairs):
-                tmp = self.value(self.merge(j), self.result[-1])
-                if tmp > best:
-                    bestNeighbour = j
-                    best = tmp
-                    horizonts = False
-                    bestId = counter
-                    if counter > 100:
-                        break
+            if len(self.horizontals) != 0:
+                for _ in range(1000):
+                    j = randint(0, len(self.horizontals)-1)
+                    tmp = self.value(self.horizontals[j], self.result[-1])
+                    if tmp > best:
+                        bestNeighbour = self.horizontals[j]
+                        best = tmp
+                        bestId = j
+            if len(self.verticals_pairs) != 0:
+                for _ in range(1000):
+                    j = randint(0, len(self.verticals_pairs)-1)
+                    tmp = self.value(self.verticals_pairs[j], self.result[-1])
+                    if tmp > best:
+                        bestNeighbour = self.verticals_pairs[j]
+                        best = tmp
+                        bestId = j
+                        horizonts = False
 
             ''' deleting becaouse is used'''
             if horizonts:
